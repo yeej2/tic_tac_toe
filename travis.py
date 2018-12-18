@@ -1,0 +1,25 @@
+# use the Python 3.5 language
+language: python
+python:
+  - "3.5"
+
+# cache to improve build speed
+cache:
+  directories:
+    - $HOME/.pip-cache/
+
+# install mdl for checking Markdown
+before_install:
+  - gem install mdl
+
+install:
+  - pip install --upgrade pip
+# - pip3 install -r requirements.txt
+#  - pip3 install pytest-flake8
+#  - pip3 install autopep8
+
+# perform testing:
+# --> check the quality of the README file
+script:
+  - mdl README.md
+#  - pytest tests
